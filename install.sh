@@ -7,7 +7,7 @@
 
 
 # Install dependencies.
-sudo apt install -y libx11-dev libxinerama-dev libxft-dev
+sudo apt install -y gcc make build-essential libx11-dev libxinerama-dev libxft-dev
 
 # Remove previous global installation.
 sudo rm /usr/bin/dmenu
