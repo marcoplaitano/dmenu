@@ -171,7 +171,8 @@ drawitem(struct item *item, int x, int y, int w)
 	/* PATCH FUZZYHIGHLIGHT */
 	// return drw_text(drw, x, y, w, bh, lrpad / 2, item->text, 0);
 	r = drw_text(drw, x, y, w, bh, lrpad / 2, item->text, 0);
-	drawhighlights(item, x, y, w);
+	if (fuzzy)
+		drawhighlights(item, x, y, w);
 	return r;
 }
 
