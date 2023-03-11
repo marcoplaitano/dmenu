@@ -1,4 +1,4 @@
-# DMENU v 5.0
+# DMENU v 5.2
 
 Official dmenu [website].
 
@@ -89,6 +89,20 @@ This patch adds options to change the colors of the highlighted fuzzy matches.
     selected highlight background color.
 + `-shf #hex`  
     selected highlight foreground color.
+
+## Center
+
+Use `-c` flag to center the window (like rofi).
+
+## Border Width
+
+Use `-bw W` to specify border width of `W` pixels. (If not specified no border
+will be drawn).
+
+## Alpha
+
+To make window semi-transparent.
+
 
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
