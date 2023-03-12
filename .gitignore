@@ -1,6 +1,3 @@
-dmenu
-dmenu_path
-dmenu_run
 stest
 *.o
 *.rej
