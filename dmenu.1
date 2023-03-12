@@ -3,7 +3,7 @@
 dmenu \- dynamic menu
 .SH SYNOPSIS
 .B dmenu
-.RB [ \-bfivP ]
+.RB [ \-abcfFivP ]
 .RB [ \-l
 .IR lines ]
 .RB [ \-h
@@ -49,6 +49,9 @@ is a script used by
 which lists programs in the user's $PATH and runs the result in their $SHELL.
 .SH OPTIONS
 .TP
+.B \-a
+enables background transparency.
+.TP
 .B \-b
 dmenu appears at the bottom of the screen.
 .TP
@@ -58,6 +61,9 @@ dmenu appears centered on the screen.
 .B \-f
 dmenu grabs the keyboard before reading stdin if not reading from a tty. This
 is faster, but will lock up X until stdin reaches end\-of\-file.
+.TP
+.B \-F
+enables fuzzy matching.
 .TP
 .B \-i
 dmenu matches menu items case insensitively.
