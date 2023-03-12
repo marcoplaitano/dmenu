@@ -1,4 +1,5 @@
-stest
 *.o
 *.rej
 *.orig
+stest
+dmenu
