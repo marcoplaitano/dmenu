@@ -17,7 +17,7 @@ Official dmenu [website].
     ./install.sh
     ```
 
-If everything worked there should now be **2** binaries inside the
+If everything worked there should now be the following binaries inside the
 `/usr/local/bin` directory: *dmenu_run* and *dmenu*.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -101,9 +101,8 @@ will be drawn).
 
 ## Alpha
 
-To make window semi-transparent.
-
-
+Use `-a` option to make the window semi-transparent.
+The alpha mask is defined in the **config.h** file.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

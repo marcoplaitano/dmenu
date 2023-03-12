@@ -3,6 +3,8 @@
 
 static int topbar = 1;                      /* -b  option; if 0, dmenu appears at bottom     */
 static const unsigned int alpha = 0xcc;
+static unsigned int use_alpha = 0; /* -a option; if 1, use alpha */
+
 /* -fn option overrides fonts[0]; default X11 font or font set */
 static const char *fonts[] = {
 	"monospace:size=10"
@@ -19,6 +21,13 @@ static const unsigned int alphas[SchemeLast][2] = {
 	[SchemeNorm] = { OPAQUE, alpha },
 	[SchemeSel] = { OPAQUE, alpha },
 	[SchemeOut] = { OPAQUE, alpha },
+};
+
+/* Masks to use when the -a option is not given: do not use transparency. */
+static const unsigned int noalphas[SchemeLast][2] = {
+	[SchemeNorm] = { OPAQUE, 0xff },
+	[SchemeSel] = { OPAQUE, 0xff },
+	[SchemeOut] = { OPAQUE, 0xff },
 };
 
 /* -l option; if nonzero, dmenu uses vertical list with given number of lines */

@@ -782,8 +782,12 @@ setup(void)
 	int a, di, n, area = 0;
 #endif
 	/* init appearance */
-	for (j = 0; j < SchemeLast; j++)
-		scheme[j] = drw_scm_create(drw, colors[j], alphas[i], 2);
+	for (j = 0; j < SchemeLast; j++) {
+        if (use_alpha)
+		    scheme[j] = drw_scm_create(drw, colors[j], alphas[i], 2);
+        else
+		    scheme[j] = drw_scm_create(drw, colors[j], noalphas[i], 2);
+    }
 
 	clip = XInternAtom(dpy, "CLIPBOARD",   False);
 	utf8 = XInternAtom(dpy, "UTF8_STRING", False);
@@ -890,7 +894,7 @@ setup(void)
 static void
 usage(void)
 {
-	die("usage: dmenu [-bfivPc] [-l lines] [-h height] [-p prompt] [-bw borderwidth]\n"
+	die("usage: dmenu [-abfivPc] [-l lines] [-h height] [-p prompt] [-bw borderwidth]\n"
         "[-fn font] [-m monitor] [-nb color] [-nf color] [-sb color] [-sf color]\n"
         "[-nhf color] [-nhb color] [-shf color] [-shb color] [-w windowid]");
 }
@@ -906,7 +910,10 @@ main(int argc, char *argv[])
 		if (!strcmp(argv[i], "-v")) {      /* prints version information */
 			puts("dmenu-"VERSION);
 			exit(0);
-		} else if (!strcmp(argv[i], "-b")) /* appears at the bottom of the screen */
+		}
+        else if (!strcmp(argv[i], "-a")) /* use alpha, transparent background */
+			use_alpha = 1;
+        else if (!strcmp(argv[i], "-b")) /* appears at the bottom of the screen */
 			topbar = 0;
 		else if (!strcmp(argv[i], "-f"))   /* grabs keyboard before reading stdin */
 			fast = 1;
