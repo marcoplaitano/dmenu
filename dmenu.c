@@ -51,7 +51,6 @@ static struct item *items = NULL;
 static struct item *matches, *matchend;
 static struct item *prev, *curr, *next, *sel;
 static int mon = -1, screen;
-static int fuzzy = 0;
 
 static Atom clip, utf8;
 static Display *dpy;
@@ -784,9 +783,9 @@ setup(void)
 	/* init appearance */
 	for (j = 0; j < SchemeLast; j++) {
         if (use_alpha)
-		    scheme[j] = drw_scm_create(drw, colors[j], alphas[i], 2);
+		    scheme[j] = drw_scm_create(drw, colors[j], alphas[j], 2);
         else
-		    scheme[j] = drw_scm_create(drw, colors[j], noalphas[i], 2);
+		    scheme[j] = drw_scm_create(drw, colors[j], noalphas[j], 2);
     }
 
 	clip = XInternAtom(dpy, "CLIPBOARD",   False);
@@ -865,8 +864,9 @@ setup(void)
 	win = XCreateWindow(dpy, parentwin, x, y, mw, mh, border_width,
 	                    depth, CopyFromParent, visual,
 	                    CWOverrideRedirect | CWBackPixel | CWBorderPixel | CWColormap | CWEventMask, &swa);
-    if (border_width)
+    if (border_width) {
         XSetWindowBorder(dpy, win, scheme[SchemeSel][ColBg].pixel);
+	}
 	XSetClassHint(dpy, win, &ch);
 
 
