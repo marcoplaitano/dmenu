@@ -6,7 +6,12 @@
 # Brief:  Installation script for dmenu.
 
 # Install dependencies.
-sudo apt install -y gcc make build-essential libx11-dev libxinerama-dev libxft-dev
+if which pacman &>/dev/null; then
+    sudo pacman -S --noconfirm gcc make libx11 libxinerama libxft
+else
+    sudo apt install -y gcc make build-essential \
+                        libx11-dev libxinerama-dev libxft-dev
+fi
 
 # Remove previous installation.
 sudo make uninstall
