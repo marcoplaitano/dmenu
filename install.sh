@@ -7,7 +7,7 @@
 
 # Install dependencies.
 if which pacman &>/dev/null; then
-    sudo pacman -S --noconfirm gcc make libx11 libxinerama libxft
+    sudo pacman -S --needed --noconfirm gcc make libx11 libxinerama libxft
 else
     sudo apt install -y gcc make build-essential \
                         libx11-dev libxinerama-dev libxft-dev
@@ -17,7 +17,7 @@ fi
 sudo make uninstall
 
 if sudo make install; then
-    printf "\nDone.\n"
+    printf "\ndmenu installed correctly.\n"
 else
-    printf "\nInstallation failed.\n"
+    printf "\ndmenu installation failed.\n"
 fi
