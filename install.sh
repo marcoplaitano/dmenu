@@ -20,4 +20,5 @@ if sudo make install; then
     printf "\ndmenu installed correctly.\n"
 else
     printf "\ndmenu installation failed.\n"
+    exit 1
 fi
