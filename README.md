@@ -94,7 +94,7 @@ Adds options to change the colors of the highlighted fuzzy matches.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-## Contributing
+# Contributing
 
 You can contribute by:
 + making [this] installation process available for other distributions too.
