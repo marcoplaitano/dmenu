@@ -8,9 +8,11 @@ This is my fork of [dmenu] (version **5.2**), with several applied patches.
 
 ```sh
 git clone https://github.com/marcoplaitano/dmenu
-cd dmenu
-./install.sh
+cd dmenu && ./install.sh
 ```
+
+**Note:** it uses `pacman` or `apt` to install the dependencies, therefore this
+script only works on `Arch` or `Ubuntu` based distributions.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -92,6 +94,13 @@ Adds options to change the colors of the highlighted fuzzy matches.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+## Contributing
+
+You can contribute by:
++ making [this] installation process available for other distributions too.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Dependencies
 
 Everything is taken care of inside the installation script.  
@@ -117,3 +126,7 @@ https://github.com/marcoplaitano/dmenu/archive/refs/heads/main.zip
 [here]:
 https://tools.suckless.org/dmenu/patches/
 "dmenu's patches"
+
+[this]:
+install.sh
+"repository file"
