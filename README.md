@@ -1,58 +1,62 @@
-# DMENU 
+# DMENU
 
-This is my fork of [dmenu] (version **5.2**), with several applied patches.
+This is my fork of [dmenu] (version **5.2**), with several patches **already**
+**applied**.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Installation
 
+Take a look at the [dependencies] listed below.
+
+Download, compile and install the program:
+
 ```sh
 git clone https://github.com/marcoplaitano/dmenu
-cd dmenu && ./install.sh
+cd dmenu
+sudo make install
 ```
 
-**Note:** it uses `pacman` or `apt` to install the dependencies, therefore this
-script only works on `Arch` or `Ubuntu` based distributions.
+Uninstall with:
+
+```sh
+sudo make uninstall
+```
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Usage
 
-## dmenu_run
-
-With this script the user can choose from a list of every program/script in
-their path and execute it.
-
 ## dmenu
 
-The way to use this script is by feeding it a list of options (strings separated
-by `\n`):
+This script needs a custom list of options (strings separated by `\n`) to choose
+from:
 
 ```sh
-printf "yes\nno\nmaybe" | dmenu
+printf "YES\nNO\nMAYBE" | dmenu
 ```
 
-The user is then prompted to write/select one of the available options. dmenu
-will output the selection to *stdout*.
+It then prompts you to write/select one of the available options. The selection
+is printed to `stdout`.
 
-## Options
+### Options
 
-Both *dmenu* and *dmenu_run* accept command-line options to customize their
-behaviour.
+Read the `man` page to learn about the command-line options that can modify
+**dmenu**'s behaviour.
 
-You can learn about them in the manual with this command:
-```sh
-man dmenu
-```
+## dmenu_run
+
+This wrapper script uses **dmenu** to choose and execute any program/script
+available in `$PATH`.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Applied patches
+# Patches applied
 
 These are all the patches I manually added to the source code. Some of these
 I have customized to further improve control over the program's behaviour and
 appearance.  
-A list of these patches and all the other available ones can be found [here].
+A list of all the available patches can be found on dmenu's [website].
 
 ## Alpha
 
@@ -63,11 +67,11 @@ The default value is `0xCC` (80% of transparency).
 
 ## Center
 
-Adds the `-c` flag to center the window on the screen (like rofi).
+Adds the `-c` option to center the window on the screen (like rofi).
 
 ## Border Width
 
-Adds the `-bw W` option to specify a border width of `W` pixels. The color of
+Adds the `-bw W` option to specify a border width of `W` pixels. The colour of
 the border is the same of the selected match's background (`-sb #RRGGBB`).  
 By default the border will not be drawn.
 
@@ -81,30 +85,22 @@ Adds the `-F` option to enable fuzzy-matching.
 
 ## Fuzzy highlight
 
-Adds options to change the colors of the highlighted fuzzy matches.
+Adds options to change the colours of the highlighted fuzzy matches.
 
 + `-nhb #RRGGBB`  
-    normal highlight background color.
+    normal fuzzy highlight background.
 + `-nhf #RRGGBB`  
-    normal highlight foreground color.
+    normal fuzzy highlight foreground.
 + `-shb #RRGGBB`  
-    selected highlight background color.
+    selected fuzzy highlight background.
 + `-shf #RRGGBB`  
-    selected highlight foreground color.
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Contributing
-
-You can contribute by:
-+ making [this] installation process available for other distributions too.
+    selected fuzzy highlight foreground.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Dependencies
 
-Everything is taken care of inside the installation script.  
-These are the libraries that will be installed:
+These are the utilities and libraries needed to compile the program:
 
 + gcc
 + make
@@ -119,14 +115,10 @@ These are the libraries that will be installed:
 https://tools.suckless.org/dmenu/
 "dmenu's website"
 
-[download]:
-https://github.com/marcoplaitano/dmenu/archive/refs/heads/main.zip
-"ZIP Download"
+[dependencies]:
+#dependencies
+"Anchor to header"
 
-[here]:
+[website]:
 https://tools.suckless.org/dmenu/patches/
 "dmenu's patches"
-
-[this]:
-install.sh
-"repository file"
